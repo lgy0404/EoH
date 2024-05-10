@@ -1,0 +1,6 @@
+{
+     "algorithm": "Algorithm: \"Greedy Nearest Neighbor with Dynamic Weight Adjustment\"",
+     "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Calculate the distances from the current node to all unvisited nodes\n    distances = distance_matrix[current_node, unvisited_nodes]\n    \n    # Adjust weights dynamically based on the remaining number of unvisited nodes\n    weight_factor = 1 / (len(unvisited_nodes) + 1)\n    adjusted_distances = distances * weight_factor\n    \n    # Select the next node with the smallest adjusted distance\n    next_node = unvisited_nodes[np.argmin(adjusted_distances)]\n    \n    return next_node",
+     "objective": 6.60788,
+     "other_inf": null
+}

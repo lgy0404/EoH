@@ -1,0 +1,42 @@
+(py30) D:\BaiduSyncdisk\Research\llm\EoH\examples\tsp_construct>python runEoH.py
+----------------------------------------- 
+---              Start EoH            ---
+-----------------------------------------
+- output folder created -
+-  parameters loaded -
+- Prob tsp_construct loaded 
+- EoH parameters loaded -
+- Evolution Start -
+- check LLM API
+creating initial population:
+Pop initial: 
+ Obj:  16.08229| Obj:  22.04609| Obj:  25.26341|
+initial population has been created!
+ OP: e1, [1 / 4] | Obj:  18.38329| Obj:  None| Obj:  29.58232| Obj:  26.33189|
+ OP: e2, [2 / 4] | Obj:  24.41407| Obj:  None| Obj:  26.71403| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  None| Obj:  18.60668| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+--- 1 of 4 populations finished. Time Cost:  2.4 m
+Pop Objs:  16.08229 18.38329 18.60668 22.04609
+ OP: e1, [1 / 4] | Obj:  None| Obj:  25.41644| Obj:  18.63534| Obj:  None|
+ OP: e2, [2 / 4] | Obj:  21.17992| Obj:  None| Obj:  23.59435| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+--- 2 of 4 populations finished. Time Cost:  3.8 m
+Pop Objs:  16.08229 18.38329 18.60668 18.63534
+ OP: e1, [1 / 4] | Obj:  None| Obj:  None| Obj:  6.60788| Obj:  None|
+ OP: e2, [2 / 4] | Obj:  28.25361| Obj:  None| Obj:  None| Obj:  23.03675|
+ OP: m1, [3 / 4] | Obj:  18.6531| Obj:  None| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  None| Obj:  None| Obj:  19.72231| Obj:  15.19624|
+--- 3 of 4 populations finished. Time Cost:  5.1 m
+Pop Objs:  6.60788 15.19624 16.08229 18.38329
+ OP: e1, [1 / 4] | Obj:  6.60788| Obj:  27.99079| Obj:  18.61755| Obj:  None|
+ OP: e2, [2 / 4] | Obj:  23.72233| Obj:  None| Obj:  None| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  19.93504| Obj:  None| Obj:  None| Obj:  None|
+--- 4 of 4 populations finished. Time Cost:  6.3 m
+Pop Objs:  6.60788 15.19624 16.08229 18.38329
+> End of Evolution!
+-----------------------------------------
+---     EoH successfully finished !   ---
+-----------------------------------------
