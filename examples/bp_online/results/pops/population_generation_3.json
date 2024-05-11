@@ -1,0 +1,26 @@
+[
+     {
+          "algorithm": "The new algorithm calculates the score for each bin based on the product of its remaining capacity and a penalty factor inversely proportional to the square of the sum of the bin's capacity and the item size, then applies a Gaussian function to the scores to ensure they are within a reasonable range, and finally normalizes the scores.",
+          "code": "import numpy as np\n\ndef score(item, bins):\n    # Calculate the remaining capacity for each bin\n    remaining_capacity = bins - item\n    # Calculate the penalty factor as the inverse of the square of the sum of the bin's capacity and the item size\n    penalty_factor = 1 / ((bins + item)**2 + 1e-9)\n    # Calculate the score as the product of the remaining capacity and the penalty factor\n    scores = remaining_capacity * penalty_factor\n    # Apply a Gaussian function to the scores to ensure they are within a reasonable range\n    scores = np.exp(-scores**2)\n    # Normalize the scores to ensure they sum up to 1\n    scores = scores / np.sum(scores)\n    return scores",
+          "objective": 0.03954,
+          "other_inf": null
+     },
+     {
+          "algorithm": " ```",
+          "code": "import numpy as np\n\ndef score(item, bins):\n    # Calculate the relative capacity of each bin\n    relative_capacity = bins - item\n    # Calculate the score as the inverse of the relative capacity squared\n    scores = 1 / (relative_capacity**2 + 1e-9)  # Add a small constant to avoid division by zero\n    # Normalize the scores to ensure they sum up to 1\n    scores = scores / np.sum(scores)\n    return scores",
+          "objective": 0.03984,
+          "other_inf": null
+     },
+     {
+          "algorithm": "Algorithm description: The new algorithm calculates the score as the product of the relative capacity and a penalty factor that increases as the relative capacity approaches the maximum capacity, and then normalizes the scores.",
+          "code": "import numpy as np\n\ndef score(item, bins):\n    # Calculate the relative capacity of each bin\n    relative_capacity = bins - item\n    # Calculate the penalty factor as the inverse of the relative capacity\n    penalty_factor = 1 / relative_capacity\n    # Calculate the score as the product of the relative capacity and the penalty factor\n    scores = relative_capacity * penalty_factor\n    # Add a small constant to avoid division by zero\n    scores = scores / (scores.sum() + 1e-9)\n    return scores",
+          "objective": 0.04226,
+          "other_inf": null
+     },
+     {
+          "algorithm": "The new algorithm calculates the score for each bin based on the product of its remaining capacity and a penalty factor that increases exponentially as the remaining capacity approaches zero, then applies a sigmoid function to the scores to ensure they are within a reasonable range, and finally normalizes the scores.",
+          "code": "import numpy as np\n\ndef score(item, bins):\n    # Calculate the remaining capacity for each bin\n    remaining_capacity = bins - item\n    # Calculate the penalty factor as the exponential of the negative remaining capacity\n    penalty_factor = np.exp(-remaining_capacity)\n    # Calculate the score as the product of the remaining capacity and the penalty factor\n    scores = remaining_capacity * penalty_factor\n    # Apply a sigmoid function to the scores to ensure they are within a reasonable range\n    scores = 1 / (1 + np.exp(-scores))\n    # Normalize the scores to ensure they sum up to 1\n    scores = scores / np.sum(scores)\n    return scores",
+          "objective": 0.04809,
+          "other_inf": null
+     }
+]

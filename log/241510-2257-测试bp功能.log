@@ -1,0 +1,44 @@
+(py30) D:\BaiduSyncdisk\Research\llm\EoH\examples\bp_online>python runEoH.py
+----------------------------------------- 
+---              Start EoH            ---
+-----------------------------------------
+- output folder created -
+-  parameters loaded -
+{'Weibull 5k': 1987.8}
+- Prob bp_online loaded 
+- EoH parameters loaded -
+- Evolution Start -
+- check LLM API    
+creating initial population:
+Pop initial: 
+ Obj:  0.03984| Obj:  1.51534|      
+initial population has been created!
+ OP: e1, [1 / 4] | Obj:  0.03984| Obj:  1.51534| Obj:  1.51534| Obj:  0.05071|
+ OP: e2, [2 / 4] | Obj:  0.05071| Obj:  1.51534| Obj:  0.05071| Obj:  0.96921|
+ OP: m1, [3 / 4] | Obj:  0.04226| Obj:  0.40879| Obj:  0.05071| Obj:  0.83429|
+ OP: m2, [4 / 4] | Obj:  0.03984| Obj:  1.51534| Obj:  0.03984| Obj:  1.51534|
+--- 1 of 4 populations finished. Time Cost:  3.0 m
+Pop Objs:  0.03984 0.04226 0.05071 0.40879
+ OP: e1, [1 / 4] | Obj:  0.89597| Obj:  0.03954| Obj:  1.51534| Obj:  0.05071|
+ OP: e2, [2 / 4] | Obj:  0.05071| Obj:  1.51534| Obj:  0.04809| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  1.51534| Obj:  None| Obj:  1.51534| Obj:  1.51534|
+ OP: m2, [4 / 4] |Parallel time out .
+
+--- 2 of 4 populations finished. Time Cost:  5.6 m
+Pop Objs:  0.03954 0.03984 0.04226 0.04809
+ OP: e1, [1 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: e2, [2 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+--- 3 of 4 populations finished. Time Cost:  5.8 m
+Pop Objs:  0.03954 0.03984 0.04226 0.04809
+ OP: e1, [1 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: e2, [2 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m1, [3 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+ OP: m2, [4 / 4] | Obj:  None| Obj:  None| Obj:  None| Obj:  None|
+--- 4 of 4 populations finished. Time Cost:  5.9 m
+Pop Objs:  0.03954 0.03984 0.04226 0.04809
+> End of Evolution!
+-----------------------------------------
+---     EoH successfully finished !   ---
+-----------------------------------------
