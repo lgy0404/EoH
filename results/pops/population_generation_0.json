@@ -1,0 +1,26 @@
+[
+     {
+          "algorithm": "A novel algorithm named \"Randomized Greedy with Local Search\" (RGLS) that selects the next node by first choosing a random unvisited node, then performing a local search around the selected node to find a better candidate if possible.",
+          "code": "import numpy as np\nimport random\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Step 1: Randomly select an unvisited node\n    next_node = random.choice(unvisited_nodes)\n    \n    # Step 2: Perform local search to find a better candidate\n    best_distance = distance_matrix[current_node, next_node]\n    for neighbor in unvisited_nodes:\n        if neighbor != next_node:\n            distance = distance_matrix[current_node, neighbor]\n            if distance < best_distance:\n                best_distance = distance\n                next_node = neighbor\n    \n    return next_node",
+          "objective": 6.60788,
+          "other_inf": null
+     },
+     {
+          "algorithm": "A novel algorithm that selects the next node based on a combination of the nearest neighbor heuristic and a random perturbation to explore alternative paths.",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Nearest neighbor heuristic\n    min_distance = np.inf\n    next_node = None\n    for node in unvisited_nodes:\n        distance = distance_matrix[current_node, node]\n        if distance < min_distance:\n            min_distance = distance\n            next_node = node\n    \n    # Random perturbation to explore alternative paths\n    if len(unvisited_nodes) > 1:\n        random_node = np.random.choice(unvisited_nodes)\n        random_distance = distance_matrix[current_node, random_node]\n        if np.random.rand() < 0.1 and random_distance < min_distance * 1.5:  # Adjust the threshold as needed\n            next_node = random_node\n    \n    return next_node",
+          "objective": 6.63772,
+          "other_inf": null
+     },
+     {
+          "algorithm": "Algorithm: \"Greedy Randomized Adaptive Search Procedure (GRASP) with Path Relinking for TSP\"",
+          "code": "import numpy as np\nimport random\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Construct a restricted candidate list (RCL)\n    threshold = np.mean(distance_matrix[current_node, unvisited_nodes])\n    RCL = [node for node in unvisited_nodes if distance_matrix[current_node, node] <= threshold]\n    \n    # Choose a next node randomly from RCL\n    next_node = random.choice(RCL)\n    \n    return next_node",
+          "objective": 16.99516,
+          "other_inf": null
+     },
+     {
+          "algorithm": "Algorithm: Modified Ant Colony Optimization (MACO) for TSP, Main Steps: Initialize pheromone trails, select next node using probability based on pheromone and distance, update pheromone trails, repeat until unvisited nodes are empty.",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Initialize pheromone trails (assuming 1 for simplicity)\n    pheromone = np.ones_like(distance_matrix)\n    \n    # Calculate heuristic information (1/distance)\n    heuristic = 1 / distance_matrix\n    \n    # Calculate visibility (pheromone * heuristic)\n    visibility = pheromone * heuristic\n    \n    # Calculate probabilities for each unvisited node\n    probabilities = visibility[current_node, unvisited_nodes] / visibility[current_node, unvisited_nodes].sum()\n    \n    # Select next node based on probabilities\n    next_node = np.random.choice(unvisited_nodes, p=probabilities)\n    \n    # Update pheromone trails (simplified, not the actual ACO update)\n    pheromone[current_node, next_node] += 1\n    \n    return next_node",
+          "objective": 19.12483,
+          "other_inf": null
+     }
+]

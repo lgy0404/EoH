@@ -1,0 +1,26 @@
+[
+     {
+          "algorithm": "A novel algorithm named \"Randomized Greedy with Local Search\" (RGLS) that selects the next node by first choosing a random unvisited node, then performing a local search around the selected node to find a better candidate if possible.",
+          "code": "import numpy as np\nimport random\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Step 1: Randomly select an unvisited node\n    next_node = random.choice(unvisited_nodes)\n    \n    # Step 2: Perform local search to find a better candidate\n    best_distance = distance_matrix[current_node, next_node]\n    for neighbor in unvisited_nodes:\n        if neighbor != next_node:\n            distance = distance_matrix[current_node, neighbor]\n            if distance < best_distance:\n                best_distance = distance\n                next_node = neighbor\n    \n    return next_node",
+          "objective": 6.60788,
+          "other_inf": null
+     },
+     {
+          "algorithm": "A novel algorithm that selects the next node based on a combination of the nearest neighbor heuristic and a random perturbation to explore alternative paths.",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Nearest neighbor heuristic\n    min_distance = np.inf\n    next_node = None\n    for node in unvisited_nodes:\n        distance = distance_matrix[current_node, node]\n        if distance < min_distance:\n            min_distance = distance\n            next_node = node\n    \n    # Random perturbation to explore alternative paths\n    if len(unvisited_nodes) > 1:\n        random_node = np.random.choice(unvisited_nodes)\n        random_distance = distance_matrix[current_node, random_node]\n        if np.random.rand() < 0.1 and random_distance < min_distance * 1.5:  # Adjust the threshold as needed\n            next_node = random_node\n    \n    return next_node",
+          "objective": 6.63772,
+          "other_inf": null
+     },
+     {
+          "algorithm": "A novel algorithm that selects the next node based on a combination of the nearest neighbor heuristic, a random perturbation to explore alternative paths, and a consideration of the distance from the destination node.",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Nearest neighbor heuristic\n    min_distance = np.inf\n    next_node = None\n    for node in unvisited_nodes:\n        distance = distance_matrix[current_node, node]\n        if distance < min_distance:\n            min_distance = distance\n            next_node = node\n    \n    # Random perturbation to explore alternative paths\n    if len(unvisited_nodes) > 1:\n        random_node = np.random.choice(unvisited_nodes)\n        random_distance = distance_matrix[current_node, random_node]\n        if np.random.rand() < 0.1 and random_distance < min_distance * 1.5:  # Adjust the threshold as needed\n            next_node = random_node\n    \n    # Consideration of the distance from the destination node\n    if next_node is not None:\n        destination_distance = distance_matrix[next_node, destination_node]\n        alternative_node = np.argmin(distance_matrix[unvisited_nodes, destination_node])\n        alternative_distance = distance_matrix[unvisited_nodes[alternative_node], destination_node]\n        if np.random.rand() < 0.1 and alternative_distance < destination_distance:\n            next_node = unvisited_nodes[alternative_node]\n    \n    return next_node",
+          "objective": 8.16381,
+          "other_inf": null
+     },
+     {
+          "algorithm": "Algorithm: \"Greedy Randomized Adaptive Search Procedure (GRASP) with Path Relinking for TSP\"",
+          "code": "import numpy as np\nimport random\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Construct a restricted candidate list (RCL)\n    threshold = np.mean(distance_matrix[current_node, unvisited_nodes])\n    RCL = [node for node in unvisited_nodes if distance_matrix[current_node, node] <= threshold]\n    \n    # Choose a next node randomly from RCL\n    next_node = random.choice(RCL)\n    \n    return next_node",
+          "objective": 16.99516,
+          "other_inf": null
+     }
+]
