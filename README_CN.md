@@ -40,9 +40,10 @@ EoH: Evolution of Heuristics
 <img src="./docs/figures/eoh.JPG" alt="eoh" width="600" height="280">
 
 ---
-**< 新闻 >**
+##  新闻  🔥 
 
-2024.5.2 [EoH（启发式算法的演变：利用大型语言模型实现高效自动算法设计）](https://arxiv.org/abs/2401.02051) 已被 [**ICML 2024**]录用了！🎉
++ 2024.5.5 [L-AutoDA: Leveraging Large Language Models for Automated Decision-based Adversarial Attacks](https://arxiv.org/abs/2401.15335) 已被 **GECCO 2024** 录用了! 🎉
++ 2024.5.2 [EoH (Evolution of Heuristics: Towards Efficient Automatic Algorithm Design using Large Language Model)](https://arxiv.org/abs/2401.02051) 已被 **ICML 2024** 录用了！🎉
 
 ---
 
@@ -52,6 +53,8 @@ EoH: Evolution of Heuristics
 启发式算法在解决复杂的搜索和优化问题时是不可或缺的。然而，手动启发式设计是繁琐的，需要大量的人类直觉和经验。
 
 EOH引入了一种新的范式，利用大型语言模型（LLMs）和演变计算（EC）之间的协同作用进行自动启发式设计（AHD）。思维和代码在演变框架内的共同演化为卓越的AHD性能，同时降低了计算成本。
+
+<img src="./docs/figures/framework.jpg" alt="eoh" width="600" height="auto">
 
 EOH在分钟/小时内设计出了非常有竞争力的算法/启发式方法。例如，在在线装箱问题上，EoH自动设计出新的最优启发式算法，优于人工设计算法和同期谷歌工作FunSearch。
 
@@ -99,6 +102,8 @@ pip install .
  
 第2步：尝试示例：
 **在开始前设置您的端点和密钥以远程LLM或在启动之前设置您的本地LLM！**
+
+**例如： 把 llm_api_endpoint 设置为 "api.deepseek.com", 把 llm_api_key 设置为 "your key",把 llm_model 设置为 "deepseek-chat".**
 ```python
 from eoh import eoh
 from eoh.utils.getParas import Paras
@@ -168,8 +173,9 @@ python runEoH.py
 提供了这里的逐步指南（即将推出）
 
 ## 大模型设置
-1) 远程LLM + API（例如，GPT3.5，GPT4）（推荐！）：
-+ OpenAI官方API。
+1) 远程LLM + API（例如， GPT3.5, Deepseek, Gemini Pro) （推荐！）：
++ OpenAI API。
++ [Deepseek API](https://platform.deepseek.com/)
 + 其他API：
   + https://yukonnet.site/ (Llama, Llamacode, Gemini Pro, 等)
   + https://github.com/chatanywhere/GPT_API_free
@@ -187,6 +193,9 @@ python runEoH.py
 欢迎访问[大模型与优化参考文献和研究论文收藏](https://github.com/FeiLiu36/LLM4Opt)
 
 ## 贡献者
-
+<img src="https://github.com/RayZhhh.png" width="60" div align=center> [Rui Zhang](https://github.com/RayZhhh) 
+<img src="https://github.com/yzy1996.png" width="60" div align=center> [Zhiyuan Yang](https://github.com/yzy1996) 
+<img src="https://github.com/pgg3.png" width="60" div align=center> [Ping Guo](https://github.com/pgg3)  
+<img src="https://github.com/ShunyuYao6.png" width="60" div align=center> [Shunyu Yao](https://github.com/ShunyuYao6)
 
 

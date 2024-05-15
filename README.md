@@ -86,7 +86,7 @@ If you are interested on LLM4Opt or EoH, you can:
 2) Visit [a collection of references and research papers on LLM4Opt](https://github.com/FeiLiu36/LLM4Opt)
 3) Join our Group (coming soon)
 
-If you encounter any difficulty using the code, you can contact us through the above or submit an [issue] 
+If you encounter any difficulty using the code, you can contact us through the above or submit an [issue](https://github.com/FeiLiu36/EoH/issues)
 
 
 
@@ -150,6 +150,15 @@ evolution.run()
 cd examples/tsp_construct
 
 python runEoH.py
+
+```
+**Evaluation**
+```bash
+cd examples/tsp_construct/evaluation
+
+copy your heuristic to heuristic.py (Note that the function name/input/output must align with the evaluation block!!)
+
+python runEval.py
 ```
 
 ###### Example 2: Online Bin Packing 
@@ -159,6 +168,14 @@ python runEoH.py
 cd examples/bp_online
 
 python runEoH.py
+```
+**Evaluation**
+```bash
+cd examples/bp_online/evaluation
+
+copy your heuristic to heuristic.py (Note that the function name/input/output must align with the evaluation block!!)
+
+python runEval.py
 ```
 
 ###### Example 3: Use EoH solve your local problem 
@@ -231,4 +248,7 @@ Welcome to visit [a collection of references and research papers on LLM4Opt](htt
 
 
 ## Contributors
-
+<img src="https://github.com/RayZhhh.png" width="60" div align=center> [Rui Zhang](https://github.com/RayZhhh) 
+<img src="https://github.com/yzy1996.png" width="60" div align=center> [Zhiyuan Yang](https://github.com/yzy1996) 
+<img src="https://github.com/pgg3.png" width="60" div align=center> [Ping Guo](https://github.com/pgg3)  
+<img src="https://github.com/ShunyuYao6.png" width="60" div align=center> [Shunyu Yao](https://github.com/ShunyuYao6)
