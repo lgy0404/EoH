@@ -1,14 +1,20 @@
 [
      {
-          "algorithm": "Algorithm: \"Greedy Randomized Adaptive Search Procedure (GRASP) for TSP\", Main steps: 1. Generate a restricted candidate list (RCL) of candidate nodes based on a greedy function and a randomization parameter. 2. Randomly select the next node from the RCL. 3. Update the current node and remove the selected node from unvisited nodes.",
-          "code": "import numpy as np\nimport random\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    randomization_parameter = 0.5\n    rcl = []\n    min_dist = np.min(distance_matrix[current_node, unvisited_nodes])\n    max_dist = np.max(distance_matrix[current_node, unvisited_nodes])\n    threshold = min_dist + randomization_parameter * (max_dist - min_dist)\n    \n    for node in unvisited_nodes:\n        if distance_matrix[current_node, node] <= threshold:\n            rcl.append(node)\n    \n    next_node = random.choice(rcl)\n    return next_node",
-          "objective": 15.69583,
+          "algorithm": "\nOur novel algorithm selects the next node based on the angle between the current node-destination node vector and the vectors from the current node to each unvisited node, prioritizing nodes that form smaller angles in a counter-clockwise direction.\n",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    angles = []\n    for node in unvisited_nodes:\n        vec1 = np.array([distance_matrix[current_node][destination_node], 0])\n        vec2 = np.array([distance_matrix[current_node][node], 0])\n        angle = np.arccos(np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2)))\n        if np.cross(vec1, vec2) < 0:\n            angle = 2*np.pi - angle\n        angles.append(angle)\n    \n    next_node = unvisited_nodes[np.argmin(angles)]\n    \n    return next_node",
+          "objective": 6.60788,
           "other_inf": null
      },
      {
-          "algorithm": "Algorithm: Novel Probabilistic Node Selection (NPNS), Main Steps: 1. Calculate the probability of each unvisited node being the next node based on its distance to the current node and the remaining nodes. 2. Select the next node with the highest probability.",
-          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    # Calculate the distance from current node to all unvisited nodes\n    current_distances = distance_matrix[current_node, unvisited_nodes]\n    \n    # Calculate the distance from all unvisited nodes to the destination node\n    destination_distances = distance_matrix[unvisited_nodes, destination_node]\n    \n    # Calculate the probability of each unvisited node being the next node\n    # based on its distance to the current node and the remaining nodes\n    probabilities = 1 / (current_distances + destination_distances)\n    probabilities /= np.sum(probabilities)\n    \n    # Select the next node with the highest probability\n    next_node = np.random.choice(unvisited_nodes, p=probabilities)\n    \n    return next_node",
-          "objective": 22.14067,
+          "algorithm": "\n  The algorithm selects the next node by finding the node with the minimum average distance to all unvisited nodes from the current node, while also considering the distance to the destination node as a tiebreaker.\n",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    min_avg_distance = float('inf')\n    next_node = None\n    \n    for node in unvisited_nodes:\n        avg_distance = np.mean([distance_matrix[current_node][node], distance_matrix[node][destination_node]])\n        \n        if avg_distance < min_avg_distance:\n            min_avg_distance = avg_distance\n            next_node = node\n    \n    return next_node",
+          "objective": 7.6436,
+          "other_inf": null
+     },
+     {
+          "algorithm": "\nProposed algorithm: Traverse all unvisited nodes and select the next node that is the farthest from the current node.\n",
+          "code": "import numpy as np\n\ndef select_next_node(current_node, destination_node, unvisited_nodes, distance_matrix):\n    max_distance = 0\n    next_node = -1\n    \n    for node in unvisited_nodes:\n        if distance_matrix[current_node][node] > max_distance:\n            max_distance = distance_matrix[current_node][node]\n            next_node = node\n    \n    return next_node",
+          "objective": 34.694,
           "other_inf": null
      }
 ]
